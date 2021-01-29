@@ -27,8 +27,7 @@ MODM_ISR({{ name }})
 {
 %% for id in irqs
 %% if id in instances
-	if (auto flags = modm::platform::AdcInterrupt{{ id }}::getInterruptFlags()) {
-		modm::platform::Adc{{ id }}::acknowledgeInterruptFlag(flags);
+	if (modm::platform::AdcInterrupt{{ id }}::getInterruptFlags()) {
 		modm::platform::AdcInterrupt{{ id }}::handler();
 	}
 %% endif

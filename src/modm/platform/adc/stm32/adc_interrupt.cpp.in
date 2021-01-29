@@ -20,8 +20,7 @@ modm::platform::AdcInterrupt{{ id }}::handler(modm::dummy);
 %% if id not in shared_irq_ids
 MODM_ISR(ADC{{ id }})
 {
-    if (auto flags = modm::platform::AdcInterrupt{{ id }}::getInterruptFlags()) {
-	modm::platform::Adc{{ id }}::acknowledgeInterruptFlag(flags);
+    if (modm::platform::AdcInterrupt{{ id }}::getInterruptFlags()) {
         modm::platform::AdcInterrupt{{ id }}::handler();
     }
 }
