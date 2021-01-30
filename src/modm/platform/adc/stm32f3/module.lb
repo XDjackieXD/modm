@@ -190,6 +190,6 @@ def build(env):
 
     env.substitutions = properties
     env.outbasepath = "modm/src/modm/platform/adc"
-    
+
     if any(i in props["shared_irq_ids"] for i in props["instances"]):
         env.template("adc_shared_interrupts.cpp.in")
